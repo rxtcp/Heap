@@ -8,9 +8,11 @@
     <packaging>jar</packaging>
 
     <properties>
+        <java.version>25</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <junit-jupiter-api.version>6.0.0</junit-jupiter-api.version>
         <junit-jupiter-params.version>6.0.0</junit-jupiter-params.version>
+        <maven-compiler-plugin.version>3.14.1</maven-compiler-plugin.version>
     </properties>
 
     <dependencyManagement>
@@ -40,4 +42,27 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>${maven-compiler-plugin.version}</version>
+                    <configuration>
+                        <target>${java.version}</target>
+                        <source>${java.version}</source>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
 </project>
